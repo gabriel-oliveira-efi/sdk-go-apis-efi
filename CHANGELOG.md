@@ -1,3 +1,11 @@
+# 3.0.2
+
+- Updated to Go Modules: Added full compatibility with the Go Modules system.
+- The go.mod file was created at the project root.
+- The directory structure was reorganized to remove the src/ subdirectory.
+- All import paths were updated to reflect the new module structure, replacing github.com/efipay/sdk-go-apis-efi/src/efipay with github.com/efipay/sdk-go-apis-efi/efipay.
+- Fixed import paths in example files that were pointing to an outdated repository (github.com/gerencianet/gn-api-sdk-go).
+
 # 3.0.1 
 
 - Added: new endpoints (automatic pix)
