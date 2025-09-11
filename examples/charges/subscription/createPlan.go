@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := efipay.NewEfiPay(credentials)
-	
-	body := map[string]interface{} {
-		"name": "My plan",
+
+	body := map[string]interface{}{
+		"name":     "My plan",
 		"interval": 2,
-		"repeats": nil,
+		"repeats":  nil,
 	}
 
 	res, err := efi.CreatePlan(body)

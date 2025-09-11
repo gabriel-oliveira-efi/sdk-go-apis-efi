@@ -2,35 +2,36 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := efipay.NewEfiPay(credentials)
 
 	customer := map[string]interface{}{
-		"name": "Gorbadoc Oldbuck",
-		"cpf": "73504596295",
+		"name":         "Gorbadoc Oldbuck",
+		"cpf":          "73504596295",
 		"phone_number": "5144916523",
 	}
 
 	items := []map[string]interface{}{
 		{
-			"name": "Product 1",
-			"value": 1000,
+			"name":   "Product 1",
+			"value":  1000,
 			"amount": 2,
 		},
 	}
 
-	body := map[string]interface{} {
+	body := map[string]interface{}{
 		"items": items,
-		"payment": map[string]interface{} {
-			"banking_billet": map[string]interface{} {
+		"payment": map[string]interface{}{
+			"banking_billet": map[string]interface{}{
 				"expire_at": "2023-12-12",
-				"customer": customer,
+				"customer":  customer,
 			},
 		},
 	}

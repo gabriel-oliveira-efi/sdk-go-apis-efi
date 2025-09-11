@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := efipay.NewEfiPay(credentials)
-	
+
 	res, err := efi.SettleCarnetParcel(1, 1) // no lugar dos 1s coloque o carnet_id e o numero da parcela respectivamente
 
 	if err != nil {

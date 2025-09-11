@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/efipay/sdk-go-apis-efi/efipay/pix"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 		"valor": map[string]interface{}{
 			"original": "1.80",
 		},
-		"chave": "", // Pix key registered in the authenticated Efí account
+		"chave":              "", // Pix key registered in the authenticated Efí account
 		"solicitacaoPagador": "Enter the order number or identifier.",
 	}
 

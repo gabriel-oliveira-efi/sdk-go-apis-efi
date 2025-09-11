@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/efipay/sdk-go-apis-efi/efipay/pix"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
 )
 
 func main() {

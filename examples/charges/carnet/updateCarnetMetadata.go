@@ -2,17 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := efipay.NewEfiPay(credentials)
-	
-	body := map[string]interface{} {
-		"custom_id": "Product 0001",
+
+	body := map[string]interface{}{
+		"custom_id":        "Product 0001",
 		"notification_url": "http://domain.com/notification",
 	}
 

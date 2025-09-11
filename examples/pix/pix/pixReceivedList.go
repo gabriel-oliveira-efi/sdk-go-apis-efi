@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay/pix"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	
-	params := map[string]string {
-		"inicio" : "2022-01-01T00:00:00Z",
-		"fim" : "2024-12-31T23:59:59Z",
+	params := map[string]string{
+		"inicio": "2022-01-01T00:00:00Z",
+		"fim":    "2024-12-31T23:59:59Z",
 		// "txid" : "00000000000000000000000000000000000",
 		// "txIdPresente" : true,
 		// "devolucaoPresente" : false,
@@ -24,8 +24,7 @@ func main(){
 		// "paginacao.itensPorPagina" : 10,
 	}
 
-
-	res, err := efi.PixReceivedList(params) 
+	res, err := efi.PixReceivedList(params)
 
 	if err != nil {
 		fmt.Println(err)

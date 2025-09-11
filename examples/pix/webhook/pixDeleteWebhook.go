@@ -2,21 +2,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay/pix"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	body := map[string]interface{} {}	
+	body := map[string]interface{}{}
 	const chave = "" //sua chave Pix Efí
-	
-	
 
-	res, err := efi.PixDeleteWebhook(chave, body) 
+	res, err := efi.PixDeleteWebhook(chave, body)
 
 	if err != nil {
 		fmt.Println(err)

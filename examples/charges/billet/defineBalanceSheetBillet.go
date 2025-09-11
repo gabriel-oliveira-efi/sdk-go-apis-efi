@@ -2,52 +2,53 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay"
+
+	"github.com/efipay/sdk-go-apis-efi/efipay"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := efipay.NewEfiPay(credentials)
 
-	body := map[string]interface{} {
+	body := map[string]interface{}{
 		"title": "Balancete Demonstrativo",
-		"body": []map[string]interface{} {
+		"body": []map[string]interface{}{
 			{
 				"header": "Demonstrativo de Consumo",
-				"tables": []map[string]interface{} {
+				"tables": []map[string]interface{}{
 					{
-						"rows": [][]map[string]interface{} {
+						"rows": [][]map[string]interface{}{
 							{
 								{
-									"align": "left",
-									"color": "#000000",
-									"style": "bold",
-									"text": "Exemplo de despesa",
+									"align":   "left",
+									"color":   "#000000",
+									"style":   "bold",
+									"text":    "Exemplo de despesa",
 									"colspan": 2,
 								},
 								{
-									"align": "left",
-									"color": "#000000",
-									"style": "bold",
-									"text": "Total lançado",
+									"align":   "left",
+									"color":   "#000000",
+									"style":   "bold",
+									"text":    "Total lançado",
 									"colspan": 2,
 								},
 							},
 							{
 								{
-									"align": "left",
-									"color": "#000000",
-									"style": "normal",
-									"text": "Instalação",
+									"align":   "left",
+									"color":   "#000000",
+									"style":   "normal",
+									"text":    "Instalação",
 									"colspan": 2,
 								},
 								{
-									"align": "left",
-									"color": "#000000",
-									"style": "normal",
-									"text": "R$ 100,00",
+									"align":   "left",
+									"color":   "#000000",
+									"style":   "normal",
+									"text":    "R$ 100,00",
 									"colspan": 2,
 								},
 							},
@@ -57,15 +58,15 @@ func main(){
 			},
 			{
 				"header": "Balancete Geral",
-				"tables": []map[string]interface{} {
+				"tables": []map[string]interface{}{
 					{
-						"rows": [][]map[string]interface{} {
+						"rows": [][]map[string]interface{}{
 							{
 								{
-									"align": "left",
-									"color": "#000000",
-									"style": "normal",
-									"text": "Confira na documentação da Gerencianet todas as configurações possíveis de um boleto balancete.",
+									"align":   "left",
+									"color":   "#000000",
+									"style":   "normal",
+									"text":    "Confira na documentação da Gerencianet todas as configurações possíveis de um boleto balancete.",
 									"colspan": 4,
 								},
 							},
@@ -73,7 +74,7 @@ func main(){
 					},
 				},
 			},
-		},	
+		},
 	}
 
 	res, err := efi.DefineBalanceSheetBillet(1, body)

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/efipay/sdk-go-apis-efi/efipay/pix"
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 		"vinculo": map[string]interface{}{
 			"contrato": "63101869",
 			"devedor": map[string]interface{}{
-				"cpf": "12345678910",
+				"cpf":  "12345678910",
 				"nome": "Gorbadoc Oldbuck",
 			},
 			"objeto": "Streamming1",
