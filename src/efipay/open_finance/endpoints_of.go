@@ -67,13 +67,11 @@ func (endpoints endpoints) OfReplaceRecurrencyPixParcel(identificadorPagamento s
 	return endpoints.requester.request("/v1/pagamentos-recorrentes/pix/:identificadorPagamento/substituir/:endToEndId", "PATCH", nil, body, params)
 }
 
-// ofCancelSchedulePix
 func (endpoints endpoints) OfCancelSchedulePix(identificadorPagamento string) (string, error) {
 	params := map[string]string{"identificadorPagamento": (identificadorPagamento)}
 	return endpoints.requester.request("/v1/pagamentos-agendados/pix/:identificadorPagamento/cancelar", "PATCH", params, nil, nil)
 }
 
-// ofListSchedulePixPayment
 func (endpoints endpoints) OfListSchedulePixPayment(inicio string, fim string) (string, error) {
 	params := map[string]string{
 		"inicio": (inicio),
@@ -82,15 +80,37 @@ func (endpoints endpoints) OfListSchedulePixPayment(inicio string, fim string) (
 	return endpoints.requester.request("/v1/pagamentos-recorrentes/pix", "GET", params, nil, nil)
 }
 
-// ofStartSchedulePixPayment
 func (endpoints endpoints) OfStartSchedulePixPayment(body map[string]interface{}) (string, error) {
 	return endpoints.requester.request("/v1/pagamentos-recorrentes/pix", "POST", nil, body, nil)
 }
 
-// ofDevolutionSchedulePix
 func (endpoints endpoints) OfDevolutionSchedulePix(identificadorPagamento string, body map[string]interface{}) (string, error) {
 	params := map[string]string{
 		"identificadorPagamento": (identificadorPagamento),
 	}
 	return endpoints.requester.request("/v1/pagamentos-recorrentes/pix/:identificadorPagamento/devolver", "POST", nil, body, params)
+}
+
+func (endpoints endpoints) OfCreateBiometricEnrollment(body map[string]interface{}, headers map[string]string) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-biometria/vinculos", "POST", nil, body, headers)
+}
+
+func (endpoints endpoints) OfListBiometricEnrollment(requestParams map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-biometria/vinculos", "GET", nil, requestParams, nil)
+}
+
+func (endpoints endpoints) OfRevokeBiometricEnrollment(body map[string]interface{}, headers map[string]string) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-biometria/vinculos", "PATCH", nil, body, headers)
+}
+
+func (endpoints endpoints) OfCreateBiometricPixPayment(body map[string]interface{}, headers map[string]string) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-biometria/pix", "POST", nil, body, headers)
+}
+
+func (endpoints endpoints) OfListBiometricPixPayment(inicio string, fim string) (string, error) {
+	params := map[string]string{
+		"inicio": (inicio),
+		"fim":    (fim),
+	}
+	return endpoints.requester.request("/v1/pagamentos-biometria/pix", "GET", params, nil, nil)
 }
