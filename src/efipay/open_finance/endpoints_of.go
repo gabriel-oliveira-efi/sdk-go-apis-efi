@@ -114,3 +114,27 @@ func (endpoints endpoints) OfListBiometricPixPayment(inicio string, fim string) 
 	}
 	return endpoints.requester.request("/v1/pagamentos-biometria/pix", "GET", params, nil, nil)
 }
+
+func (endpoints endpoints) OfCreateAutomaticEnrollment(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/adesao", "POST", nil, body, nil)
+}
+
+func (endpoints endpoints) OfListAutomaticEnrollment(requestParams map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/adesao", "GET", nil, requestParams, nil)
+}
+
+func (endpoints endpoints) OfUpdateAutomaticEnrollment(body map[string]interface{}, headers map[string]string) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/adesao", "PATCH", nil, body, headers)
+}
+
+func (endpoints endpoints) OfCreateAutomaticPixPayment(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/pix", "POST", nil, body, nil)
+}
+
+func (endpoints endpoints) OfListAutomaticPixPayment(requestParams map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/pix", "GET", nil, requestParams, nil)
+}
+
+func (endpoints endpoints) OfCancelAutomaticPixPayment(requestParams map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/pagamentos-automaticos/pix", "PATCH", nil, requestParams, nil)
+}
