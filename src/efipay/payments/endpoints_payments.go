@@ -10,7 +10,7 @@ func (endpoints endpoints) PayDetailBarCode(params map[string]string) (string, e
 	return endpoints.requester.request("/codBarras/:codBarras", "GET", params, nil)
 }
 
-func (endpoints endpoints) PayDetailPayment(params map[string]string)(string, error) {
+func (endpoints endpoints) PayDetailPayment(params map[string]string) (string, error) {
 	return endpoints.requester.request("/:idPagamento", "GET", params, nil)
 }
 
@@ -20,4 +20,19 @@ func (endpoints endpoints) PayListPayments(params map[string]string) (string, er
 
 func (endpoints endpoints) PayRequestBarCode(params map[string]string, body map[string]interface{}) (string, error) {
 	return endpoints.requester.request("/codBarras/:codBarras", "POST", params, body)
+}
+
+// PayConfigWebhook
+func (endpoints endpoints) PayConfigWebhook(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/webhook", "PUT", nil, body)
+}
+
+// PayDeleteWebhook
+func (endpoints endpoints) PayDeleteWebhook(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v1/webhook", "DELETE", nil, body)
+}
+
+// payListWebhook
+func (endpoints endpoints) PayListWebhook(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v1/webhook", "GET", params, nil)
 }
