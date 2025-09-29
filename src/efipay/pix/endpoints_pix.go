@@ -10,9 +10,8 @@ func (endpoints endpoints) CreateImmediateCharge(body map[string]interface{}) (s
 	return endpoints.requester.request("/v2/cob", "POST", nil, body)
 }
 
-
 func (endpoints endpoints) CreateCharge(txid string, body map[string]interface{}) (string, error) {
-	params := map[string]string{ "txid": (txid) }
+	params := map[string]string{"txid": (txid)}
 	return endpoints.requester.request("/v2/cob/:txid", "PUT", params, body)
 }
 
@@ -298,7 +297,6 @@ func (endpoints endpoints) PixUpdateRequestRecurrenceAutomatic(idSolicRec string
 	return endpoints.requester.request("/v2/solicrec/:idSolicRec", "PATCH", params, body)
 }
 
-
 func (endpoints endpoints) PixDetailLocationRecurrenceAutomatic(id string) (string, error) {
 	params := map[string]string{"id": (id)}
 	return endpoints.requester.request("/v2/locrec/:id", "GET", params, nil)
@@ -319,4 +317,20 @@ func (endpoints endpoints) PixUnlinkLocationRecurrenceAutomatic(id string) (stri
 
 func (endpoints endpoints) PixCreateImmediateCharge(body map[string]interface{}) (string, error) {
 	return endpoints.requester.request("/v2/cob", "POST", nil, body)
+}
+
+func (endpoints endpoints) PixCreateDueChargeBatch(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/cobr/:txid", "PUT", params, body)
+}
+
+func (endpoints endpoints) PixUpdateDueChargeBatch(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/solicrec/:idSolicRec", "PATCH", params, body)
+}
+
+func (endpoints endpoints) PixDetailDueChargeBatch(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v2/locrec/:id", "GET", params, nil)
+}
+
+func (endpoints endpoints) PixListDueChargeBatch(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v2/locrec/:id", "GET", params, nil)
 }
