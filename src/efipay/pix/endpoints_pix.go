@@ -153,6 +153,10 @@ func (endpoints endpoints) PixListWebhooks(inicio string, fim string) (string, e
 	return endpoints.requester.request("/v2/webhook?inicio=:inicio&fim=:fim", "GET", params, nil)
 }
 
+func (endpoints endpoints) PixResendWebhook(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request(" /v2/gn/webhook/reenviar", "POST", nil, body)
+}
+
 func (endpoints endpoints) CreateDueCharge(txid string, body map[string]interface{}) (string, error) {
 	params := map[string]string{"txid": (txid)}
 	return endpoints.requester.request("/v2/cobv/:txid", "PUT", params, body)
