@@ -157,6 +157,30 @@ func (endpoints endpoints) PixResendWebhook(body map[string]interface{}) (string
 	return endpoints.requester.request(" /v2/gn/webhook/reenviar", "POST", nil, body)
 }
 
+func (endpoints endpoints) PixConfigWebhookRecurrenceAutomatic(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookrec", "PUT", params, body)
+}
+
+func (endpoints endpoints) PixListWebhookRecurrenceAutomatic(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookrec", "GET", nil, body)
+}
+
+func (endpoints endpoints) PixDeleteWebhookRecurrenceAutomatic(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookrec", "DELETE", nil, body)
+}
+
+func (endpoints endpoints) PixConfigWebhookAutomaticCharge(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookcobr", "PUT", params, body)
+}
+
+func (endpoints endpoints) PixListWebhookAutomaticCharge(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookcobr", "GET", nil, body)
+}
+
+func (endpoints endpoints) PixDeleteWebhookAutomaticCharge(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/webhookcobr", "DELETE", nil, body)
+}
+
 func (endpoints endpoints) CreateDueCharge(txid string, body map[string]interface{}) (string, error) {
 	params := map[string]string{"txid": (txid)}
 	return endpoints.requester.request("/v2/cobv/:txid", "PUT", params, body)
