@@ -62,6 +62,22 @@ func (endpoints endpoints) PixSendDetail(e2eid string) (string, error) {
 	return endpoints.requester.request("/v2/gn/pix/enviados/:e2eid", "GET", params, nil)
 }
 
+func (endpoints endpoints) PixSendSameOwnership(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/gn/pix/:idEnvio/mesma-titularidade", "PUT", params, body)
+}
+
+func (endpoints endpoints) PixSendDetailId(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v2/gn/pix/enviados/id-envio/:idEnvio", "GET", params, nil)
+}
+
+func (endpoints endpoints) PixQrCodePay(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/gn/pix/:idEnvio/qrcode", "PUT", params, body)
+}
+
+func (endpoints endpoints) PixQrCodeDetail(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/gn/qrcodes/detalhar", "POST", nil, body)
+}
+
 func (endpoints endpoints) PixCreateLocation(body map[string]interface{}) (string, error) {
 	return endpoints.requester.request("/v2/loc", "POST", nil, body)
 }
