@@ -12,7 +12,7 @@ func main() {
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	res, err := efi.GetAccountBalance(nil)
+	res, err := efi.PixKeysBucket(nil)
 
 	if err != nil {
 		fmt.Println(err)

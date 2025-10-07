@@ -12,7 +12,14 @@ func main() {
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	res, err := efi.GetAccountBalance(nil)
+	params := map[string]string{
+		"e2eid": "E0000000000000000000000000000",
+		// "txid": "0000000000000000000000000000000",
+		// "idEnvio": "0000000000000000000000000000000",
+		// "rtrId": "D0000000000000000000000000000",
+	}
+
+	res, err := efi.PixGetReceipt(params)
 
 	if err != nil {
 		fmt.Println(err)

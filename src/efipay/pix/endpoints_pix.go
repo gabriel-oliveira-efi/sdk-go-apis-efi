@@ -209,6 +209,22 @@ func (endpoints endpoints) DetailReport(id string) (string, error) {
 	return endpoints.requester.request("/v2/gn/relatorios/:id", "GET", params, nil)
 }
 
+func (endpoints endpoints) MedList(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v2/gn/infracoes", "GET", params, nil)
+}
+
+func (endpoints endpoints) MedDefense(params map[string]string, body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/gn/infracoes/:idInfracao/defesa", "POST", params, body)
+}
+
+func (endpoints endpoints) PixKeysBucket(body map[string]interface{}) (string, error) {
+	return endpoints.requester.request("/v2/gn/chaves/balde", "GET", nil, body)
+}
+
+func (endpoints endpoints) PixGetReceipt(params map[string]string) (string, error) {
+	return endpoints.requester.request("/v2/gn/pix/comprovantes", "GET", params, nil)
+}
+
 func (endpoints endpoints) PixReceivedList(params map[string]string) (string, error) {
 	return endpoints.requester.request("/v2/pix", "GET", params, nil)
 }
